@@ -428,7 +428,7 @@ int main (int argc, char** argv)
     PointCloud::Ptr final (new PointCloud);
     final=data[0].cloud;
     PointCloud::Ptr init_result (new PointCloud);
-    init_result = target;
+    *init_result = *target;
     Eigen::Matrix4f init_transform = Eigen::Matrix4f::Identity ();
     PCL_INFO ("Aligning %s (%d) with %s (%d).\n", data[i-1].f_name.c_str (), source->points.size (), data[i].f_name.c_str (), target->points.size ());
     sac_ia_align(source,target,init_result,init_transform,max_sacia_iterations,min_correspondence_dist,max_correspondence_dist);
